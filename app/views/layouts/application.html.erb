@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Easycard</title>
+  <title>Easy Card</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -25,14 +25,15 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="navbar-collapse collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-left">
-        <li><a href="/contacts">Contacts</a></li>
-        <li><a href="/transfer">Transfer</a></li>
-        <li><a href="/mycard">My Card</a></li> 
-        <li><a href="/more">More</a></li>
-        <li><a href="/search">Search</a></li>
+        <li><%= link_to "Contacts", contacts_path %></li>
+        <li><%= link_to "Transfer", transfer_path %></li>
+        <li><%= link_to "My Card", mycard_path %></li> 
+        <li><%= link_to "More", more_path %></li>
+        <li><%= link_to "Search", search_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-           <% if user_signed_in? %>
+          <% if user_signed_in? %>
+            <li><%= link_to "Account Settings", edit_user_registration_path %></li>
         <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to "Sign Up", new_user_registration_path %></li>

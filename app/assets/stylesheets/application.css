@@ -22,6 +22,8 @@ padding-bottom: 40px; }
 border: 1px dashed rgb(211,211,211);
 padding-right:15px;}
 
+ul.nav a:hover {background-color: rgba(255,255,255,0.8) !important;}
+
 footer .navbar-collapse.in {
     bottom: 50px;
     position: absolute;
@@ -33,8 +35,12 @@ footer .navbar-collapse.in {
 .jumbotron {background-color:rgb(250,250,250);}
 
 tr.clickablerow:hover{
-   cursor: pointer;
+   cursor: pointer; 
    /* whatever other hover styles you want */
 }
 
 .card {border: 1px solid rgb(211,211,211); max-width:450px;}
+
+.panel-footer{background: none; border:none;}
+
+.checkbox{padding-left: 20px;}
