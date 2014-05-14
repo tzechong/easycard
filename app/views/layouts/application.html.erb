@@ -10,12 +10,10 @@
 </head>
 
 <body>
-
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -25,17 +23,31 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="navbar-collapse collapse">
+      <div class="navbar-collapse collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav navbar-left">
+        <li><a href="/contacts">Contacts</a></li>
+        <li><a href="/transfer">Transfer</a></li>
+        <li><a href="/mycard">My Card</a></li> 
+        <li><a href="/more">More</a></li>
+        <li><a href="/search">Search</a></li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li> 
+           <% if user_signed_in? %>
+        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+      <% end %> 
         </ul>
       </div><!-- /.navbar-collapse -->
-    </div>
-  </div>
+ </div>
 
   <div class="container">
     <div class="jumbotron">
+      <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-info") %>
+  <% end %>
+
       <%= yield %>
     </div>
   </div>
