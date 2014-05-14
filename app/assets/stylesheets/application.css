@@ -37,4 +37,4 @@ tr.clickablerow:hover{
    /* whatever other hover styles you want */
 }
 
-.card{border: 1px solid; width:450px;}
+.card {border: 1px solid rgb(211,211,211); max-width:450px;}
