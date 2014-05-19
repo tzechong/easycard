@@ -1,14 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'page#index'
-  get "/contacts" => "page#contacts"
-  get "/call" => "page#call"
-  get "/transfer" => "page#transfer"
-  get "/mycard" => "page#mycard"
-  get "/search" => "page#search"
-  get "/add" => "page#add"
-  get "/more" => "page#more"
-  get "/info" => "page#info"
+  root 'page#home'
+  get "/contact" => "page#contact"
+  get "/download" => "page#download"
+  get "/faq" => "page#faq"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
