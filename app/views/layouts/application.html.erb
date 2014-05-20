@@ -26,17 +26,42 @@
         </div> <!-- /.navbar-header -->
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Home</a></li>
+          <ul class="nav navbar-nav navbar-left">
             <li><a href="/download">Download</a></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Prototype", prototype_path %></li>
+            <% end %>
             <li><a href="/faq">FAQ</a></li>
             <li><a href="/contact">Contact Us</a></li>
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+              <li><%= link_to "Settings", edit_user_registration_path %></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <li><%= link_to "Sign In", new_user_session_path %></li>
+            <% end %> 
+
         </div> <!-- /.navbar-collapse -->
       </div> <!-- /.container -->
     </nav> <!-- /.navbar -->
 
+    <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-info") %>
+    <% end %>
+
+    <div id="top" class="jumbotron">
+    <div class="container">
+        <h1>Welcome to Easy Card</h1>
+        <h2><i class="fa fa-quote-left fa-2x pull-left"></i><br> Easy Card fully digitizes business cards and allow you to carry around with you a mini library of contacts in your mobile devices wherever you go. <i class="fa fa-quote-right fa-2x pull-right"></i></h2><br>
+        <p><a class="btn btn-warning btn-lg" href="/download">Download <span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
+    </div> <!-- /.container -->
+    </div> <!-- /.jumbotron -->
+
+    <div class="container">
     <%= yield %>
+    </div>
 
     <footer>
       <div class="container clearfix">

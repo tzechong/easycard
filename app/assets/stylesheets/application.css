@@ -163,11 +163,20 @@ ul.nav a:hover {
   right: 0%;
   bottom: 0px;
 }
-#map-canvas {
-  max-width: 100%; 
-  max-height: 300px;
-  margin: 0;
-  padding: 15px;
+tr.clickablerow:hover {
+  cursor: pointer; 
+}
+/* whatever other hover styles you want */
+.card {
+  border: 1px solid rgb(211,211,211); 
+  max-width:450px;
+}
+.checkbox {
+  padding-left: 20px;
+}
+.panel-footer {
+  background: none;
+  border:none;
 }
 footer {
   background: #111;
