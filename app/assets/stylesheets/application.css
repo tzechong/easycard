@@ -51,6 +51,14 @@ body, h1, h2, h3, h4, h5, h6 {
 .container {
   max-width: 920px;
 }
+.alert {
+  bottom: 0px;
+  position: fixed;
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  z-index:1030;
+}
 .navbar {
   background: #111;
   padding: 0.3em 0;

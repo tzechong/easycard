@@ -48,7 +48,10 @@
     </nav> <!-- /.navbar -->
 
     <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert alert-info") %>
+      <div class="alert alert-info alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= msg %>
+      </div>
     <% end %>
 
     <div id="top" class="jumbotron">
@@ -79,6 +82,11 @@
         $("html,body").animate({scrollTop: $(href).offset().top - 80}, 500);
         link.closest(".navbar").find(".navbar-toggle:not(.collapsed)").click();
       });
+      $(document).ready(function(){
+        $(".close").click(function(){
+          $(".alert").alert();
+          });
+        });
     </script>
   </body>
 </html>
