@@ -2,9 +2,7 @@
 <html>
 
   <head>
-
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
     <meta charset="utf-8">
     <title>Easy Card</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -12,8 +10,8 @@
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
+  
   <body>
-
     <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -50,16 +48,17 @@
     <% flash.each do |name, msg| %>
       <div class="alert alert-info alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <img class="cat" src="http://iconbug.com/data/c7/512/cff6527915574c0cb3cd666b03d654a3.png">
         <%= msg %>
       </div>
     <% end %>
 
     <div id="top" class="jumbotron">
-    <div class="container">
+      <div class="container">
         <h1>Welcome to Easy Card</h1>
         <h2><i class="fa fa-quote-left fa-2x pull-left"></i><br> Easy Card fully digitizes business cards and allow you to carry around with you a mini library of contacts in your mobile devices wherever you go. <i class="fa fa-quote-right fa-2x pull-right"></i></h2><br>
         <p><a class="btn btn-warning btn-lg" href="/download">Download <span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
-    </div> <!-- /.container -->
+      </div> <!-- /.container -->
     </div> <!-- /.jumbotron -->
 
     <div class="container">
@@ -74,19 +73,5 @@
       </div> <!-- /.container -->
     </footer>
 
-    <script>
-      $(".nav-link").click(function(e) {
-        e.preventDefault();
-        var link = $(this);
-        var href = link.attr("href");
-        $("html,body").animate({scrollTop: $(href).offset().top - 80}, 500);
-        link.closest(".navbar").find(".navbar-toggle:not(.collapsed)").click();
-      });
-      $(document).ready(function(){
-        $(".close").click(function(){
-          $(".alert").alert();
-          });
-        });
-    </script>
   </body>
 </html>
