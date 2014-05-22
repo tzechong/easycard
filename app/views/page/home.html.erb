@@ -83,7 +83,11 @@
         </div> <!-- /.col-md-12 -->
       </div> <!-- /.row -->
 
-      <center><h3><%= link_to "Sign Up", new_user_registration_path %> to get a better sense of the application!</h3></center>
+      <% if !user_signed_in? %>
+        <center><h3><%= link_to "Sign Up", new_user_registration_path %> to get a better sense of the application!</h3></center>
+      <% else %>
+        <center><h3><%= link_to "Click here", prototype_path %> to get a better sense of the application!</h3></center>
+      <% end %>
 
       <div class="sect-border"></div>
 
